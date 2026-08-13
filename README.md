@@ -1,66 +1,54 @@
-# 🚀 AI-Powered PDF RAG Chatbot
+# 📚 AI-Powered RAG PDF Question Answering System
 
-An intelligent **Retrieval-Augmented Generation (RAG)** application built using **LangChain, Mistral AI, ChromaDB, Vector Embeddings, and Streamlit** that enables users to upload PDF documents and ask contextual questions through a conversational AI interface.
+A Retrieval-Augmented Generation (RAG) application built with Python, LangChain, ChromaDB, Mistral AI, and Streamlit that allows users to upload PDF documents and ask natural-language questions based on their content.
 
-## 🌐 Live Demo
-https://pdf-rag-project-pna66jay958az92eyqpyak.streamlit.app/
-
-## 📂 GitHub Repository
-https://github.com/bhavya782292/PDF-RAG-PROJECT
+The system processes the uploaded PDF, splits it into smaller chunks, generates semantic embeddings, stores them in a Chroma vector store, retrieves relevant document context using Maximum Marginal Relevance (MMR), and uses a Mistral language model to generate context-grounded answers.
 
 ---
 
-## ✨ Features
+## 🚀 Overview
 
-- 📄 Upload and process PDF documents dynamically
-- 🧠 AI-powered contextual question answering
-- 🔍 Semantic search using Vector Embeddings
-- ⚡ MMR-based intelligent document retrieval
-- 🗂️ ChromaDB vector database integration
-- 🤖 Mistral AI LLM integration
-- 💬 Interactive Streamlit user interface
-- 📚 Efficient chunking and retrieval pipeline for large documents
+Large Language Models may not have access to information contained inside a user's private documents.
 
----
+This project addresses this problem using a **Retrieval-Augmented Generation (RAG)** pipeline.
 
-## 🛠️ Tech Stack
+Instead of asking the LLM to answer directly, the application first retrieves relevant information from the uploaded PDF and then provides that information to the LLM as context.
 
-- Python
-- LangChain
-- Mistral AI
-- ChromaDB
-- Streamlit
-- Vector Embeddings
-- Recursive Text Splitter
-- PyPDFLoader
+### Core Workflow
 
----
-
-## ⚙️ System Workflow
-
-1. Upload PDF document  
-2. Extract text from PDF  
-3. Split content into semantic chunks  
-4. Generate vector embeddings  
-5. Store embeddings in ChromaDB  
-6. Retrieve relevant chunks using MMR search  
-7. Generate contextual answers using Mistral LLM  
-
----
-
-## 📸 Project Preview
-
-Add screenshots of your Streamlit UI here.
-
----
-
-## ▶️ Installation & Setup
-
-Clone the repository:
-
-```bash
-git clone https://github.com/bhavya782292/PDF-RAG-PROJECT.git
-cd PDF-RAG-PROJECT
-
-Live Demo: https://your-app-name.streamlit.app
+```text
+              PDF Upload
+                   │
+                   ▼
+             PyPDFLoader
+                   │
+                   ▼
+             Text Extraction
+                   │
+                   ▼
+       Recursive Text Splitting
+                   │
+                   ▼
+          Mistral Embeddings
+                   │
+                   ▼
+            ChromaDB Vector Store
+                   │
+                   │
+             User Question
+                   │
+                   ▼
+              MMR Retrieval
+                   │
+                   ▼
+          Relevant PDF Chunks
+                   │
+                   ▼
+           Prompt Construction
+                   │
+                   ▼
+             Mistral Small
+                   │
+                   ▼
+             Final Answer
 
